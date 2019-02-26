@@ -1,0 +1,72 @@
+#!/bin/bash -x
+
+### Set dock size to small 
+
+defaults write com.apple.dock tilesize -integer 32; killall Dock
+
+### Set dock to left hand side 
+
+defaults write com.apple.dock orientation -string left
+
+### Set Desktop Picture 
+
+cd ~/Downloads
+curl -O https://dr92wy3r2elps.cloudfront.net/6s/Ryanr-1211512431.jpg
+sleep 5  
+osascript -e ‘tell application “Finder” to set desktop picture to POSIX file “~/Downloads/Ryanr-1211512431.jpg”’
+
+
+#### Applications ####
+
+### Install Chrome ###
+
+cd ~/Downloads
+curl -O https://dl.google.com/chrome/mac/stable/CHFA/googlechrome.dmg
+open ~/Downloads/googlechrome.dmg
+set timeout 120
+#Suggestion from StackOverflow. Use a while loop and the brackets to verify the existence of the directory
+
+while ! [[ -d /Volumes/Google\ Chrome/ ]] ; do
+       sleep 1
+done
+
+cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications && open /Applications/Google\ Chrome.app
+diskutil eject Google\ Chrome
+
+sleep 3
+
+### Install Firefox ###
+
+cd ~/Downloads
+curl -O https://download-installer.cdn.mozilla.net/pub/firefox/releases/65.0.1/mac/en-US/Firefox%2065.0.1.dmg
+open ~/Downloads/Firefox*.dmg
+set timeout 120
+
+while ! [[ -d /Volumes/Firefox ]] ; do
+        sleep 1
+done
+
+cp -R /Volumes/Firefox/Firefox.app /Applications && open /Applications/Firefox.app
+diskutil eject Firefox
+
+sleep 3
+
+# Firefox script works but requires user input: "This application was downloaded from the internet..."
+
+
+### Install Sublime Text ###
+
+cd ~/Downloads
+curl -O https://download.sublimetext.com/Sublime%20Text%20Build%203176.dmg
+open ~/Downloads/Sublime Text Build 3176.dmg
+set timeout 120
+
+while ! [[ -d /Volumes/Sublime\ Text ]] ; do
+        sleep 1
+done
+
+cp -R /Volumes/Sublime\ Text/Sublime\ Text.app /Applications && open /Applications/Sublime\ Text.app
+diskutil eject Sublime\ Text
+
+sleep 3
+
