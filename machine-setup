@@ -16,9 +16,15 @@ sleep 5
 osascript -e ‘tell application “Finder” to set desktop picture to POSIX file “~/Downloads/Ryanr-1211512431.jpg”’
 
 
+### Homebrew
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# There may be prompts when installing Homebrew, may need to find a way to automate those
+
 #### Applications ####
 
-### Install Chrome ###
+### Chrome
 
 cd ~/Downloads
 curl -O https://dl.google.com/chrome/mac/stable/CHFA/googlechrome.dmg
@@ -54,7 +60,7 @@ sleep 3
 # Firefox script works but requires user input: "This application was downloaded from the internet..."
 
 
-### Install Sublime Text ###
+### Sublime Text
 
 cd ~/Downloads
 curl -O https://download.sublimetext.com/Sublime%20Text%20Build%203176.dmg
@@ -69,4 +75,27 @@ cp -R /Volumes/Sublime\ Text/Sublime\ Text.app /Applications && open /Applicatio
 diskutil eject Sublime\ Text
 
 sleep 3
+
+
+### Slack
+
+curl -O https://downloads.slack-edge.com/mac_releases/Slack-3.3.8.dmg
+
+
+### Realtime Board - now called Miro
+
+curl -0 https://desktop.realtimeboard.com/platforms/darwin/Miro%20-%20formerly%20RealtimeBoard.dmg
+
+### Firefox
+
+
+
+### Chrome
+### Apple Remote Desktop
+### Zoom
+### VMWare Fusion
+### Microsoft Office
+### Apple Configurator 2
+### Wireshark
+### XCode
 
